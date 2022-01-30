@@ -4,8 +4,8 @@ import BannerImage from "../assets/carsWallper.jpg";
 import "../styles/Home.css";
 
 function Home() {
-  return <div className='home'> 
-    <div className='headerContainer' style={{backgroundImage: `url(${BannerImage})`}}> 
+  return <div className='home' style={{backgroundImage: `url(${BannerImage})`}}> 
+    <div className='headerContainer' > 
       <h1>Rent-a-Car MP</h1>
       <p>We have car for everyone!</p>
       <Link to="/cars">
