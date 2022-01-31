@@ -11,7 +11,7 @@ function CarItem(props) {
   const[stateRemove,setStateRemove]=useState("none");
   
   function setAdd(propsName,id){
-    console.log(id);
+    
     var btn=document.getElementById(propsName);
     btn.style.display=setStateAdd("none");
     var btn=document.getElementById(propsName+"1");
@@ -26,16 +26,30 @@ function CarItem(props) {
   }
 
   if(props.isRent==="false"){
-    return <div className='carsItem'>
-    <div style={{backgroundImage: `url(${props.image})`}}></div>
-  <h2>{props.name}</h2>
-  <p>Year: {props.year}</p>
-  <p>${props.price} per day</p>
-  
-    <button className='btn' style={{display:stateAdd}} id={props.name} onClick={()=>{props.onAdd(props.id); setAdd(props.name,props.id);}} ><AddCircleIcon/></button>
-    <button className='btn' style={{display:stateRemove}} id={props.name+"1"} onClick={()=>{props.onRemove(); setRemove(props.name);}} ><RemoveCircleOutline/></button>
-   
-</div>;
+    if(props.rent===0){
+      return <div className='carsItem'>
+      <div style={{backgroundImage: `url(${props.image})`}}></div>
+    <h2>{props.name}</h2>
+    <p>Year: {props.year}</p>
+    <p>${props.price} per day</p>
+    
+      <button className='btn' style={{display:stateAdd}} id={props.name} onClick={()=>{props.onAdd(props.id); setAdd(props.name,props.id);}} ><AddCircleIcon/></button>
+      <button className='btn' style={{display:stateRemove}} id={props.name+"1"} onClick={()=>{props.onRemove(props.id); setRemove(props.name);}} ><RemoveCircleOutline/></button>
+     
+  </div>;
+    }else{
+      return <div className='carsItem'>
+      <div style={{backgroundImage: `url(${props.image})`}}></div>
+    <h2>{props.name}</h2>
+    <p>Year: {props.year}</p>
+    <p>${props.price} per day</p>
+    
+      <button className='btn' style={{display:"none"}} id={props.name} onClick={()=>{props.onAdd(props.id); setAdd(props.name,props.id);}} ><AddCircleIcon/></button>
+      <button className='btn' style={{display:"initial"}} id={props.name+"1"} onClick={()=>{props.onRemove(props.id); setRemove(props.name);}} ><RemoveCircleOutline/></button>
+     
+  </div>;
+    }
+    
   }else{
     return <div className='carsItem'>
       <div style={{backgroundImage: `url(${props.image})`}}></div>

@@ -5,13 +5,13 @@ import CarItem from '../components/CarItem';
 
 function Contact(props) {
   return <div className='contact'>
-      <div className='leftSide' style={{backgroundImage: `url(${LeftCar})`}}>
+     
+      
         
-      </div>
-      <div className='rightSide'>
 <div>
       <h1 className='carsTitle'>Selected Cars</h1>
       <div className='carsList'>
+        
           {props.carsList.map((carItem, key)=>{
             
               return (<CarItem   key={key} image={carItem.image} name={carItem.name} price={carItem.price} year={carItem.year} onAdd={props.onAdd} onRemove={props.onRemove} rent={carItem.rent} isRent={"true"}/>);
@@ -19,8 +19,7 @@ function Contact(props) {
             
           })}
       </div>
-      </div>
-            <h1>Contact us</h1>
+      <h1>Contact us</h1>
             <form id="contact-form">
               
                 <label htmlFor='name'>Full Name</label>
@@ -38,8 +37,10 @@ function Contact(props) {
 
            
             </form>
-        </div>
-  </div>;
+      </div>
+            
+        </div>;
+  
 }
 
 export default Contact;

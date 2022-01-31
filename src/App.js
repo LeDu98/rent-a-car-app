@@ -38,7 +38,8 @@ function App() {
       name: "BMW X2 M",
       image: BmwX2,
       year: 2019,
-      price: 140
+      price: 140,
+      rent: 0
   },
   {
       id: 3,
@@ -92,9 +93,15 @@ function refreshRent(){
         refreshRent();
         
     }
-    function removeCar(){
+    function removeCar(id){
       console.log("remove Car");
       setRentNum(rent_num-1);
+      cars.forEach((car)=>{
+        if(car.id===id){
+          car.rent=0;
+        }
+      });
+      refreshRent();
     }
 
     
