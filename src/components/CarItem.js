@@ -10,18 +10,18 @@ function CarItem(props) {
   const[stateAdd,setStateAdd]=useState("initial");
   const[stateRemove,setStateRemove]=useState("none");
   
-  function setAdd(propsName,id){
+  function setAdd(propsId){
     
-    var btn=document.getElementById(propsName);
+    var btn=document.getElementById(propsId);
     btn.style.display=setStateAdd("none");
-    var btn=document.getElementById(propsName+"1");
+    var btn=document.getElementById(propsId+"REMOVE");
     btn.style.display=setStateRemove("initial");
   }
 
-  function setRemove(propsName){
-    var btn=document.getElementById(propsName+"1");
+  function setRemove(propsId){
+    var btn=document.getElementById(propsId+"REMOVE");
     btn.style.display=setStateRemove("none");
-    var btn=document.getElementById(propsName);
+    var btn=document.getElementById(propsId);
     btn.style.display=setStateAdd("initial");
   }
 
@@ -33,8 +33,8 @@ function CarItem(props) {
     <p>Year: {props.year}</p>
     <p>${props.price} per day</p>
     
-      <button className='btn' style={{display:stateAdd}} id={props.name} onClick={()=>{props.onAdd(props.id); setAdd(props.name,props.id);}} ><AddCircleIcon/></button>
-      <button className='btn' style={{display:stateRemove}} id={props.name+"1"} onClick={()=>{props.onRemove(props.id); setRemove(props.name);}} ><RemoveCircleOutline/></button>
+      <button className='btn' style={{display:stateAdd}} id={props.name} onClick={()=>{props.onAdd(props.id); setAdd(props.id);}} ><AddCircleIcon/></button>
+      <button className='btn' style={{display:stateRemove}} id={props.id+"REMOVE"} onClick={()=>{props.onRemove(props.id); setRemove(props.id);}} ><RemoveCircleOutline/></button>
      
   </div>;
     }else{
