@@ -6,8 +6,7 @@ import CLS350 from "../assets/mercedes.jpg";
 import Golf7 from "../assets/golf.jpg";
 
 
-export const CarsList=[
-    {
+export const CarsList = [{
         name: "Opel Astra J",
         image: Astra,
         year: 2013,
